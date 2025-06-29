@@ -16,6 +16,8 @@ import static jakarta.persistence.FetchType.LAZY;
 @Table(name = "orders")
 @Getter @Setter
 public class Order {
+    protected Order() {
+    }
 
     @Id @GeneratedValue
     @Column(name= "order_id")

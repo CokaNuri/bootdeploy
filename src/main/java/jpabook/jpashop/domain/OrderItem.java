@@ -11,6 +11,10 @@ import static jakarta.persistence.FetchType.LAZY;
 @Getter @Setter
 public class OrderItem {
 
+    protected OrderItem() {
+    }
+
+
     @Id @GeneratedValue
     @Column(name = "order_item_id")
     private Long id;
@@ -42,6 +46,7 @@ public class OrderItem {
     }
 
     //== 조회 로직 ==//
+
     /**
      * 주문 상품 전체 조회
      */
