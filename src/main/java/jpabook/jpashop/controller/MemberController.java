@@ -46,15 +46,7 @@ public class MemberController {
     @GetMapping("/members")
     public String list(Model model) {
         List<Member> members = memberService.findMembers();
-        List<MemberForm> memberForms = new ArrayList<>();
-        for (Member member : members) {
-            MemberForm memberForm = new MemberForm();
-            memberForm.setName(member.getName());
-            memberForm.setCity(member.getAddress().getCity());
-            memberForms.add(memberForm);
-        }
-
-        model.addAttribute("members", memberForms);
+        model.addAttribute("members", members);
         return "members/memberList";
     }
 }

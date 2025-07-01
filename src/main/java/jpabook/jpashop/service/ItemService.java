@@ -21,6 +21,18 @@ public class ItemService {
         return item.getId();
     }
 
+
+    @Transactional
+    public void updateItem(Long itemId, String name, int price, int stockQuantity) {
+        Item item = itemRepository.findOne(itemId);
+
+        item.setName(name);
+        item.setPrice(price);
+        item.setStockQuantity(stockQuantity);
+        // 위에처럼 setter로 하지 말고 item.chane(name,price,stockQuantity); 처럼 메서드를 만들자
+    }
+
+
     public List<Item> findItem() {
         return itemRepository.findAll();
     }
